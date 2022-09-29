@@ -1,0 +1,37 @@
+{
+  "name": "settermjd/php-url-shortern",
+  "description": "A URL shortener written in PHP",
+  "authors": [
+    {
+      "name": "Matthew Setter",
+      "email": "matthew@matthewsetter.com",
+      "homepage": "https://matthewsetter.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/settermjd/php-url-shortener"
+  },
+  "require": {
+    "php": "8.*",
+    "ext-pdo": "*",
+    "laminas/laminas-inputfilter": "^2.19",
+    "php-di/slim-bridge": "^3.2",
+    "slim/psr7": "^1.5",
+    "slim/slim": "4.*",
+    "slim/twig-view": "^3.3",
+    "vlucas/phpdotenv": "v5.4.1",
+    "laminas/laminas-uri": "^2.9",
+    "laminas/laminas-diactoros": "^2.17",
+    "laminas/laminas-db": "^2.15"
+  },
+  "autoload": {
+    "psr-4": {
+      "UrlShortener\\": "src/UrlShortener"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "UrlShortenerTest\\": "test/UrlShortener"
+    }
+  }
+}

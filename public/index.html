@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Halloween Trick or Treat Sender</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Halloween Trick or Treat Sender</h1>
+</header>
+<main>
+    <section class="pt-8">
+        <h2>Want to Scare Your Friends on Halloween?</h2>
+        <div class="lead">
+            <p>Prank them with this Halloween image sender. All you need to do is:</p>
+            <ol>
+                <li>Pick an image</li>
+                <li>Write a scary message</li>
+                <li>Enter your friend's phone number</li>
+                <li>Pick if you want to send the image to them by SMS or WhatsApp</li>
+            </ol>
+        </div>
+    </section>
+
+    <form name="halloween-trick-or-treat">
+        <div id="pick-an-image">
+            <h2>1. Pick Your Image</h2>
+            <div class="images-wrapper">
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/emoji-vampire.png"
+                         alt="Emoji Vampire"
+                         class="my-auto">
+                    <div class="image-label">Emoji Vampire</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/ghost.png"
+                         alt="Ghost"
+                         class="my-auto">
+                    <div class="image-label">Ghost</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/halloween_jack-olantern.png"
+                         alt="Halloween Jack O'lantern"
+                         class="my-auto">
+                    <div class="image-label">Halloween Jack O'lantern</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/halloween-scene.png"
+                         alt="Halloween Jack O'lantern"
+                         class="my-auto">
+                    <div class="image-label">Halloween Scene</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/happy-halloween.png"
+                         alt="Happy Halloween"
+                         class="my-auto">
+                    <div class="image-label">Happy Halloween</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image-choice"
+                           class="image-choice">
+                    <img src="/images/happy-halloween-2.png"
+                         alt="Happy Halloween 2"
+                         class="my-auto">
+                    <div class="image-label">Happy Halloween 2</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/jack-olantern.png"
+                         alt="Jack O'Lantern"
+                         class="my-auto">
+                    <div class="image-label">Jack O'Lantern</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/jack-o-lantern-pv.png"
+                         alt="Jack O'Lantern (PV)"
+                         class="my-auto">
+                    <div class="image-label">Jack O'Lantern (PV)</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/kid-vampire.png"
+                         alt="Kid Vampire"
+                         class="my-auto">
+                    <div class="image-label">Kid Vampire</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/spooky-jack-olantern.png"
+                         alt="A Spooky Jack O'Lantern"
+                         class="my-auto">
+                    <div class="image-label">A Spooky Jack O'Lantern</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/trick-or-treat.png"
+                         alt="Trick or Treat"
+                         class="my-auto">
+                    <div class="image-label">Trick or Treat</div>
+                </div>
+                <div class="image-container">
+                    <input type="radio"
+                           name="image_choice"
+                           class="image-choice">
+                    <img src="/images/vampire.png"
+                         alt="The Vampire"
+                         class="my-auto">
+                    <div class="image-label">The Vampire</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="write-your-message">
+            <h2>2. Write Your Message</h2>
+            <div>
+                <textarea name="message"
+                          rows="10"
+                          placeholder="Write your spooky message"></textarea>
+            </div>
+        </div>
+
+        <div id="choose-your-friend">
+            <h2>3. Choose Your Friend</h2>
+            <div>
+                <div class="choose-your-friend-container">
+                    <label for="phone-number">Your Friend's Phone Number</label>
+                    <input type="tel"
+                           name="phone-number"
+                           id="phone-number">
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="mt-6">
+            <input type="submit"
+                   name="submit"
+                   value="Send Your Message">
+            <input type="reset"
+                   name="reset"
+                   value="Cancel">
+        </div>
+    </form>
+</main>
+<footer>
+    <div class="copyright">copyright &copy; Matthew Setter 2022.</div>
+</footer>
+</body>
+</html>

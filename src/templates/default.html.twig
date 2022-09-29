@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <form name="halloween-trick-or-treat"
+          method="post"
+          action="/">
+        <div id="url-shortener">
+            {% if success == true %}
+                <div class="success">URL was shortened from {{ longUrl }} to {{ shortUrl }}.</div>
+            {% endif %}
+            <div>
+                <div>
+                    <label class="font-bold text-2xl" for="phone-number">Enter a URL to shorten:</label>
+                    <div class="mt-1">
+                        {% if errors.url is defined %}
+                            {% for error in errors.url %}
+                            <div class="error">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+                        <input type="url"
+                               name="url"
+                               id="url"
+                               class="w-full p-3 {% if errors.url is defined %}input-error{% endif %}"
+                               value="{{ values.url }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit"
+                   name="submit"
+                   value="Shorten the URL">
+            <input type="reset"
+                   name="reset"
+                   value="Cancel">
+        </div>
+    </form>
+{% endblock %}

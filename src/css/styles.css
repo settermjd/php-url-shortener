@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply mb-4 sm:mb-6 lg:mb-20 xl:mb-28 bg-white text-slate-800 bg-gray-50 antialiased text-base;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply mb-3 mt-4 lg:mt-8 font-extrabold text-left text-violet-900;
+    }
+
+    a {
+        @apply decoration-4 decoration-violet-400 underline hover:decoration-violet-800 transition duration-150 ease-in-out;
+    }
+
+    h1 {
+        @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-center text-white m-0;
+    }
+
+    h2 {
+        @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl pb-1 mt-0 mb-4;
+    }
+
+    h3 {
+        @apply text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+    }
+
+    h4 {
+        @apply text-lg md:text-xl lg:text-2xl xl:text-3xl;
+    }
+
+    header {
+        @apply bg-violet-900 py-8 drop-shadow-lg px-8 sm:px-0;
+    }
+
+    main {
+        @apply app-content bg-white rounded-md xl:mt-8 xl:drop-shadow-lg;
+    }
+
+    footer {
+        @apply app-content mt-6;
+    }
+
+    input {
+        @apply border-4 border-slate-200 rounded-md;
+    }
+
+    input[type=tel] {
+        @apply border-amber-300 bg-amber-100 border-4 p-2 w-full rounded-md hover:border-amber-500 hover:shadow-inner transition duration-150 ease-in-out text-2xl;
+    }
+
+    input[type=submit] {
+        @apply rounded-md p-4 border-4 border-violet-700 bg-violet-700 text-white text-xl mr-1 hover:drop-shadow-md hover:bg-violet-900 hover:cursor-pointer transition duration-150 ease-in-out;
+    }
+
+    input[type=reset] {
+        @apply rounded-md p-4 border-4 border-slate-400 bg-white text-slate-500 text-xl transition hover:drop-shadow-md hover:bg-gray-50 duration-150 ease-in-out hover:cursor-pointer;
+    }
+
+    textarea {
+        @apply border-amber-300 bg-amber-100 border-4 p-3 w-full rounded-md hover:border-amber-500 hover:shadow-inner transition duration-150 ease-in-out text-2xl;
+    }
+
+    hr {
+        @apply my-6 border-2 border-slate-300;
+    }
+
+    label {
+        @apply text-xl block md:inline mb-2;
+    }
+
+    .success {
+        @apply p-4 mb-4 bg-green-600 text-white font-bold rounded-md;
+    }
+
+    .error {
+        @apply my-2 pl-0 italic text-red-900 font-bold;
+    }
+
+    #url-shortener {
+        @apply mt-8 mb-3;
+    }
+
+    form {
+        @apply py-3;
+    }
+}
+
+@layer components {
+    .app-content {
+        @apply mx-auto max-w-7xl sm:max-w-7xl px-4 sm:px-6 lg:px-8 pt-0 pb-8;
+    }
+
+    .images-wrapper {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 mt-2;
+    }
+
+    .image-container {
+        @apply border-4 border-amber-300 rounded-md pt-2 pb-4 px-4 bg-amber-200 hover:border-amber-500 hover:bg-amber-300 hover:drop-shadow-md transition duration-150 ease-in-out hover:cursor-pointer flex justify-center flex-col pt-4;
+    }
+
+    .selected {
+        @apply border-amber-500 bg-amber-300 drop-shadow-md;
+    }
+
+    .image-label {
+        @apply text-center flex-none py-3 text-white bg-violet-600 border-4 border-purple-800 mt-4;
+    }
+
+    .image-choice {
+        @apply scale-125 flex-none place-self-start;
+    }
+
+    .lead {
+        @apply text-white bg-violet-600 border-2 border-purple-800 rounded-md p-4 pb-6 mb-8;
+    }
+
+    .lead p {
+        @apply leading-loose text-2xl;
+    }
+
+    .lead ol {
+        @apply text-2xl list-outside list-decimal ml-6 mt-1;
+    }
+
+    .copyright {
+        @apply text-center text-slate-600;
+    }
+
+    .input-error,
+    input[type=tel].input-error {
+        @apply border-red-500 bg-red-100 hover:border-red-300;
+    }
+}

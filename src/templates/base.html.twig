@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}PHP Url Shortener</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon"
+          type="image/png"
+          href="/images/favicon.png">
+</head>
+<body>
+<header>
+    <h1>{% block h1_header %}{% endblock %}<a href="/" class="no-underline">PHP Url Shortener</a></h1>
+</header>
+<main id="app">
+        {% block content %}
+        {% endblock %}
+</main>
+<footer>
+    <div class="copyright">copyright &copy; Matthew Setter 2022.</div>
+</footer>
+</body>
+</html>
