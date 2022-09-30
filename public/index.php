@@ -123,7 +123,6 @@ $app->map(['GET','POST'], '/',
             if (! $filter->isValid()) {
                 $data['errors'] = $filter->getMessages();
                 $data['values'] = $filter->getValues();
-                var_dump($data);
             } else {
                 /** @var UrlShortenerService $shortener */
                 $shortener = $this->get(UrlShortenerService::class);
