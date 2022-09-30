@@ -36,7 +36,7 @@
     }
 
     main {
-        @apply app-content bg-white rounded-md xl:mt-8 xl:drop-shadow-lg;
+        @apply app-content bg-white rounded-md xl:mt-8 xl:border-4 xl:border-slate-300;
     }
 
     footer {
@@ -72,7 +72,7 @@
     }
 
     .success {
-        @apply p-4 mb-4 bg-green-600 text-white font-bold rounded-md;
+        @apply py-4 px-6 mb-4 bg-violet-100 text-slate-700 text-xl rounded-md grid grid-cols-2 gap-8;
     }
 
     .error {

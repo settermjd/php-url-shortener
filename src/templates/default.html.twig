@@ -6,7 +6,10 @@
           action="/">
         <div id="url-shortener">
             {% if success == true %}
-                <div class="success">URL was shortened from {{ longUrl }} to {{ shortUrl }}.</div>
+                <div class="success">
+                    <span>{{ longUrl }}</span>
+                    <span class="text-right">{{ shortUrl }}</span>
+                </div>
             {% endif %}
             <div>
                 <div>
