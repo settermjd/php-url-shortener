@@ -23,7 +23,7 @@ final class UrlShortenerService
      */
     public function getShortUrl(string $longUrl): string
     {
-        $shortUrl = $this->shortenUrl();
+        $shortUrl = $this->shortenUrl($longUrl);
         $this
             ->shortenerPersistence
             ->persistUrl($longUrl, $shortUrl);
@@ -42,15 +42,15 @@ final class UrlShortenerService
             ->shortenerPersistence
             ->getLongUrl($shortUrl);
 
-        return sprintf('http://%s', $longUrl);
+        return $longUrl;
     }
 
     /**
      * Generates a unique, short URL
      */
-    private function shortenUrl(): string
+    protected function shortenUrl(string $longUrl): string
     {
-        return substr(
+        $shortenedUrl = substr(
             base64_encode(
                 sha1(
                     uniqid(
@@ -61,6 +61,12 @@ final class UrlShortenerService
             ),
             0,
             self::SHORT_URL_LENGTH
+        );
+
+        return sprintf(
+            "%s://%s",
+            parse_url($longUrl, PHP_URL_SCHEME),
+            $shortenedUrl
         );
     }
 }
