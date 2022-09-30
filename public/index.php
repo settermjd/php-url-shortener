@@ -3,7 +3,7 @@
 use DI\Container;
 use Laminas\Db\Adapter\Exception\InvalidQueryException;
 use Laminas\Db\TableGateway\Feature\RowGatewayFeature;
-use Laminas\Diactoros\Response\EmptyResponse;
+use Laminas\Db\TableGateway\TableGateway;
 use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\Response\RedirectResponse;
 use Laminas\Filter\StringTrim;
@@ -21,7 +21,7 @@ use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 use UrlShortener\UrlShortenerService;
-use UrlShortener\UrlShortenerTableGateway;
+use UrlShortener\UrlShortenerDatabaseService;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -88,12 +88,13 @@ $container->set(Adapter::class, function(): Adapter {
 $container->set(
     UrlShortenerService::class,
     function (ContainerInterface $container): UrlShortenerService {
+        $tableGateway = new TableGateway(
+            'urls',
+            $container->get(Adapter::class),
+            [new RowGatewayFeature(['long', 'short'])]
+        );
         return new UrlShortenerService(
-            new UrlShortenerTableGateway(
-                $_SERVER['TABLE_NAME'],
-                $container->get(Adapter::class),
-                [new RowGatewayFeature(['long', 'short'])]
-            )
+            new UrlShortenerDatabaseService($tableGateway)
         );
     }
 );
