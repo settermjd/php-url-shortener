@@ -92,7 +92,7 @@ class UrlShortenerServiceTest extends TestCase
 
         $shortener = new UrlShortenerService($this->persistence->reveal());
         $this->assertMatchesRegularExpression(
-            "/(http|https):\/\/([a-zA-Z0-9]{9})/",
+            "/^[a-zA-Z0-9]{9}$/",
             $shortener->getShortUrl($longUrl)
         );
     }

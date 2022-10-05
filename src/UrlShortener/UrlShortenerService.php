@@ -63,10 +63,6 @@ final class UrlShortenerService
             self::SHORT_URL_LENGTH
         );
 
-        return sprintf(
-            "%s://%s",
-            parse_url($longUrl, PHP_URL_SCHEME),
-            $shortenedUrl
-        );
+        return $shortenedUrl;
     }
 }
