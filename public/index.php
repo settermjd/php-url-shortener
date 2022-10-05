@@ -138,21 +138,17 @@ $app->map(['GET','POST'], '/',
             } else {
                 /** @var UrlShortenerService $shortener */
                 $shortener = $this->get(UrlShortenerService::class);
-                try {
-                    $shortUrl = $shortener->getShortUrl(
-                        $filter->getValue('url')
-                    );
-                    $data = array_merge(
-                        $data,
-                        [
-                            'shortUrl' => $shortUrl,
-                            'longUrl' => $filter->getValue('url'),
-                            'success' => true
-                        ]
-                    );
-                } catch (InvalidQueryException $e) {
-                    echo $e->getMessage();
-                }
+                $shortUrl = $shortener->getShortUrl(
+                    $filter->getValue('url')
+                );
+                $data = array_merge(
+                    $data,
+                    [
+                        'shortUrl' => $shortUrl,
+                        'longUrl' => $filter->getValue('url'),
+                        'success' => true
+                    ]
+                );
             }
         }
 
