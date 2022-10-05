@@ -56,7 +56,7 @@ $container->set(InputFilter::class, function(ContainerInterface $container): Inp
             ]
         ]))
         ->attach(new NoRecordExists([
-            'table'   => $_SERVER['TABLE_NAME'],
+            'table'   => $_SERVER['DB_TABLE_NAME'],
             'field'   => 'long',
             'adapter' => $container->get(Adapter::class),
             'messages' => [
