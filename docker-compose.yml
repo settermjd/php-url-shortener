@@ -1,17 +1,23 @@
 services:
 
   nginx:
-    build:
-      context: ./
-      dockerfile: docker/nginx/Dockerfile
+    image: nginx:1.23.1-alpine
     restart: unless-stopped
     depends_on:
       - php
     ports:
-      - "8008:80"
+      - "8080:${NGINX_PORT:-8080}"
+    environment:
+      - NGINX_PORT=${NGINX_PORT:-8080}
+      - NGINX_SERVER_NAME=${NGINX_SERVER_NAME:-localhost}
+      - NGINX_DOC_ROOT=${NGINX_DOC_ROOT:-/var/www/html/public}
+      - NGINX_DIRECTORY_INDEX=${NGINX_DIRECTORY_INDEX:-index.php}
+      - NGINX_FASTCGI_DIRECTORY_INDEX=${NGINX_FASTCGI_DIRECTORY_INDEX:-index.php}
+      - NGINX_FASTCGI_HOSTNAME=${NGINX_FASTCGI_HOSTNAME:-php}
+      - NGINX_FASTCGI_PORT=${NGINX_FASTCGI_PORT:-9000}
     volumes:
       - .:/var/www/html
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/nginx/templates:/etc/nginx/templates
 
   php:
     build:

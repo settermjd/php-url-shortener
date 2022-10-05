@@ -1,0 +1,37 @@
+server {
+
+    listen ${NGINX_PORT};
+    server_name ${NGINX_SERVER_NAME};
+    root ${NGINX_DOC_ROOT};
+    index ${NGINX_DIRECTORY_INDEX};
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    charset utf-8;
+    client_max_body_size 100m;
+    sendfile off;
+
+    location / {
+        try_files $uri $uri/ /${NGINX_DIRECTORY_INDEX};
+    }
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass ${NGINX_FASTCGI_HOSTNAME}:${NGINX_FASTCGI_PORT};
+        fastcgi_index ${NGINX_FASTCGI_DIRECTORY_INDEX};
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param APPLICATION_ENV development;
+        fastcgi_intercept_errors off;
+        fastcgi_buffer_size 16k;
+        fastcgi_buffers 4 16k;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
