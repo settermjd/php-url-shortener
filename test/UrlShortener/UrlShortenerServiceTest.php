@@ -48,10 +48,7 @@ class UrlShortenerServiceTest extends TestCase
             ->willReturn('');
 
         $shortener = new UrlShortenerService($this->persistence->reveal());
-        $this->assertSame(
-            '',
-            $shortener->getLongUrl($shortUrl)
-        );
+        $this->assertSame('', $shortener->getLongUrl($shortUrl));
     }
 
     /**

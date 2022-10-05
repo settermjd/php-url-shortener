@@ -1,10 +1,13 @@
 {% extends "base.html.twig" %}
 
+{% block title %}PHP Url Shortener{% endblock %}
+{% block h1_header %}<a href="/" class="no-underline">PHP Url Shortener</a>{% endblock %}
+
 {% block content %}
-    <form name="halloween-trick-or-treat"
+    <form name="url-shortener"
           method="post"
           action="/">
-        <div id="url-shortener">
+        <div>
             {% if success == true %}
                 <div class="success">
                     <span>{{ longUrl }}</span>
@@ -31,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="mt-2">
             <input type="submit"
                    name="submit"
                    value="Shorten the URL">
