@@ -8,7 +8,9 @@
             {% if success == true %}
                 <div class="success">
                     <span>{{ longUrl }}</span>
-                    <span class="text-right">{{ shortUrl }}</span>
+                    <span class="text-right">
+                        <a href="{{ base_url }}/{{ shortUrl }}">{{ base_url }}/{{ shortUrl }}</a>
+                    </span>
                 </div>
             {% endif %}
             <div>

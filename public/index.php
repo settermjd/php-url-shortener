@@ -115,7 +115,18 @@ $app->add(TwigMiddleware::create(
 $app->map(['GET','POST'], '/',
     function (Request $request, Response $response, array $args)
     {
-        $data = [];
+        $protocol = (isset($_SERVER['HTTPS'])
+            && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1))
+            ? 'https'
+            : 'http';
+
+        $baseUrl = ((int)$_SERVER['SERVER_PORT'] === 80)
+            ? sprintf("%s://%s", $protocol, $_SERVER['SERVER_NAME'])
+            : sprintf("%s://%s:%d", $protocol, $_SERVER['SERVER_NAME'], $_SERVER['SERVER_PORT']);
+
+        $data = [
+            'base_url' => $baseUrl
+        ];
 
         if ($request->getMethod() === 'POST') {
             /** @var InputFilter $filter */
