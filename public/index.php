@@ -6,6 +6,7 @@ use Laminas\Db\TableGateway\Feature\RowGatewayFeature;
 use Laminas\Db\TableGateway\TableGateway;
 use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\Response\RedirectResponse;
+use Laminas\Diactoros\Response\TextResponse;
 use Laminas\Filter\StringTrim;
 use Laminas\Filter\StripTags;
 use Laminas\InputFilter\Input;
@@ -173,11 +174,19 @@ $app->get('/{url:[a-zA-Z0-9]{9}}',
             );
         }
 
-        return new JsonResponse(
+        return new TextResponse(
             sprintf("No URL matching '%s' available", $filter->getValue('url')),
             404
         );
     }
 );
+
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$errorMiddleware->setDefaultErrorHandler(function (Request $request) use ($app)
+{
+    $response = $app->getResponseFactory()->createResponse();
+    return Twig::fromRequest($request)
+        ->render($response, '404.html.twig', []);
+});
 
 $app->run();
